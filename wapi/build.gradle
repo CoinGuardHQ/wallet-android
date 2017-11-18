@@ -5,14 +5,18 @@ repositories {
 }
 
 dependencies {
+    def wapiDependencies = rootProject.ext.trezorDependencies
+    def wapiTestDependencies = rootProject.ext.trezorTestDependencies
+
     compile project(includePrefix + ':bitlib')
     compile project(includePrefix + ':mbwlib')
 
-    testCompile "junit:junit:$junitVersion"
-    testCompile "org.mockito:mockito-core:2.0.44-beta"
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
-    compile 'com.squareup.okhttp:okhttp:2.7.4'
-    compile 'com.google.guava:guava:18.0'
+    compile wapiDependencies.jacksonCore
+    compile wapiDependencies.jacksonAnnotations
+    compile wapiDependencies.jacksonDataBinding
+    compile wapiDependencies.okhttp
+    compile wapiDependencies.guaga
+
+    testCompile wapiTestDependencies.junit
+    testCompile wapiTestDependencies.mockito
 }

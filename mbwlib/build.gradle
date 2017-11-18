@@ -5,18 +5,23 @@ repositories {
 }
 
 dependencies {
+    def mbwLibDependencies = rootProject.ext.coinApultDependencies
+    def mbwLibTestDependencies = rootProject.ext.coinApultTestDependencies
+
     compile project(includePrefix +':bitlib')
+
     compile guavaArtifact
-    compile 'com.squareup:otto:1.3.4'
-    compile 'com.squareup.okhttp:okhttp:2.7.4'
-    compile 'com.squareup.wire:wire-runtime:1.6.1'
 
-    compile 'com.madgag.spongycastle:core:1.51.0.0'
-    compile 'com.madgag.spongycastle:prov:1.51.0.0'
-    compile 'com.madgag.spongycastle:pkix:1.51.0.0'
-    compile 'com.madgag.spongycastle:pg:1.51.0.0'
+    compile mbwLibDependencies.otto
+    compile mbwLibDependencies.okhttp
+    compile mbwLibDependencies.wireRuntime
 
-    compile 'org.bitcoinj:bitcoinj-core:0.14.4'
+    compile mbwLibDependencies.spongyCastleCore
+    compile mbwLibDependencies.spongyCastleProv
+    compile mbwLibDependencies.spongyCastlePkix
+    compile mbwLibDependencies.spongyCastlePg
 
-    testCompile "junit:junit:$junitVersion"
+    compile mbwLibDependencies.bitcoinj
+
+    testCompile mbwLibTestDependencies.junit
 }

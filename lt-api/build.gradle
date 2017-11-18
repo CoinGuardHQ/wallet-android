@@ -5,10 +5,14 @@ repositories {
 }
 
 dependencies {
+    def ltApiDependencies = rootProject.ext.ltApiDependencies
+    def ltApiTestDependencies = rootProject.ext.ltApiTestDependencies
+
     compile project(includePrefix +':bitlib')
     compile project(includePrefix +':mbwlib')
 
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
-    testCompile "junit:junit:$junitVersion"
+    compile ltApiDependencies.jacksonAnnotations
+    compile ltApiDependencies.jacksonDataBinding
+
+    testCompile ltApiTestDependencies.junit
 }

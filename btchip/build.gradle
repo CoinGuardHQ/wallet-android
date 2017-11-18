@@ -15,7 +15,8 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:19.1.0'
+    def btcChipDependencies = rootProject.ext.btcChipDependencies
+    compile btcChipDependencies.supportV4
     compile project(includePrefix + ':libs:nordpol')
 }
 

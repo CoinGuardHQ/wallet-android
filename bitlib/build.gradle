@@ -13,10 +13,14 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.protobuf:protobuf-java:2.5.0@jar'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
-    testCompile "junit:junit:$junitVersion"
+    def bitlibDependencies = rootProject.ext.bitlibDependencies
+    def bitlibTestDependencies = rootProject.ext.bitlibTestDependencies
+
     compile guavaArtifact
-    compile 'org.bitcoinj:bitcoinj-core:0.14.4'
+    compile bitlibDependencies.protobuf
+    compile bitlibDependencies.jacksonAnnotations
+    compile bitlibDependencies.jacksonDataBinding
+    compile bitlibDependencies.bitcoinj
+
+    testCompile bitlibTestDependencies.junit
 }

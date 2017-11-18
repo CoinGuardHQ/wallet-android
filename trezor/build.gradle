@@ -15,10 +15,13 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:19.1.0'
-    compile 'com.google.protobuf:protobuf-java:2.5.0'
+    def trezorDependencies = rootProject.ext.trezorDependencies
+    def trezorTestDependencies = rootProject.ext.trezorTestDependencies
 
-    testCompile "junit:junit:$junitVersion"
+    compile trezorDependencies.supportV4
+    compile trezorDependencies.protobuf
+
+    testCompile trezorTestDependencies.junit
 }
 
 android {
