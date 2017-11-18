@@ -19,17 +19,7 @@ ext {
     androidSupportConstrainLayoutVersion = "1.0.0-alpha7"
     androidSupportRecyclerViewV7Version = "22.2.0"
 
-    //Libraries
-
-    //Testing
-    jUnitVersion = '4.12'
-    mockitoVersion = '2.0.44-beta'
-    testingSupportLibVersion = '0.5'
-
-    //Development
-    leakCanaryVersion = '1.5.1'
-
-    // New
+    // Libraries
     protobufVersion = '2.5.0@jar'
     jacksonVersion = '2.5.1'
     bitcoinjVersion = '0.14.4'
@@ -39,7 +29,6 @@ ext {
     okHttpVersion = "2.7.4"
     wireVersion = "1.6.1"
     guavaVersion = "18.0"
-
     butterKnifeVersion = "8.1.0"
     findBugsVersion = "3.0.1"
     retrofitVersion = "1.9.0"
@@ -47,6 +36,14 @@ ext {
     prettyTimeVersion = "3.2.5.Final"
     rxAndroidVersion = "1.1.0"
     commonsCodecVersion = "1.5"
+
+    //Testing
+    jUnitVersion = '4.12'
+    mockitoVersion = '2.0.44-beta'
+    testingSupportLibVersion = '0.5'
+
+    //Development
+    leakCanaryVersion = '1.5.1'
 
     backupUtilDependencies = [
             appCompatV7: "com.android.support:appcompat-v7:${androidSupportVersion}",
