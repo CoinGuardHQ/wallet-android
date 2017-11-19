@@ -4,8 +4,8 @@ def versionMinor = 0
 def versionPatch = 0
 def versionCodeApp = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100
 
-apply from: 'buildsystem/ci.gradle'
-apply from: 'buildsystem/dependencies.gradle'
+apply from: 'gradle/ci.gradle'
+apply from: 'gradle/dependencies.gradle'
 
 buildscript {
     repositories {
