@@ -8,4 +8,14 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
     }
+
+    // This is required as org.apache was deprecated with Android 22 and removed with Android M
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+    def lvlDependencies = rootProject.ext.lvlDependencies
+
+    compile lvlDependencies.httpCore
+    compile lvlDependencies.httpClient
 }
