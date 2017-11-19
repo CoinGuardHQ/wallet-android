@@ -5,8 +5,8 @@ repositories {
 }
 
 dependencies {
-    def wapiDependencies = rootProject.ext.trezorDependencies
-    def wapiTestDependencies = rootProject.ext.trezorTestDependencies
+    def wapiDependencies = rootProject.ext.wapiDependencies
+    def wapiTestDependencies = rootProject.ext.wapiTestDependencies
 
     compile project(includePrefix + ':bitlib')
     compile project(includePrefix + ':mbwlib')
@@ -15,7 +15,7 @@ dependencies {
     compile wapiDependencies.jacksonAnnotations
     compile wapiDependencies.jacksonDataBinding
     compile wapiDependencies.okhttp
-    compile wapiDependencies.guaga
+    compile wapiDependencies.guava
 
     testCompile wapiTestDependencies.junit
     testCompile wapiTestDependencies.mockito

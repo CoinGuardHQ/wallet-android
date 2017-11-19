@@ -5,11 +5,14 @@ allprojects {
 }
 
 ext {
-    //Android
-    androidBuildToolsVersion = "26.0.2"
-    androidMinSdkVersion = 15
-    androidTargetSdkVersion = 26
-    androidCompileSdkVersion = 26
+    //Project Configuration
+    buildToolsVersion = "26.0.2"
+    minSdkVersion = 14
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+
+    sourceCompatibilityVersion = JavaVersion.VERSION_1_7
+    targetCompatibilityVersion = JavaVersion.VERSION_1_7
 
     // Android
     androidSupportVersion = '19.1.0'
@@ -88,36 +91,36 @@ ext {
             jacksonDataBinding: "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}",
     ]
 
-    ltApiTesteDependencies = [
+    ltApiTestDependencies = [
             junit: "junit:junit:${jUnitVersion}",
     ]
 
     mbwDependencies = [
-            playServicesBase: "com.google.android.gms:play-services-base:${androidPlayServicesVersion}",
-            playServicesGCM: "com.google.android.gms:play-services-gcm:${androidPlayServicesVersion}",
-            findBugAnnotations: "com.google.code.findbugs:annotations:${findBugsVersion}",
-            otto            : "com.squareup:otto:${ottoVersion}",
-            appCompatV7: "com.android.support:appcompat-v7:${androidSupportVersion}",
-            supportV4: "com.android.support:support-v4:${androidSupportVersion}",
-            recyclerViewV7: "com.android.support:recyclerview-v7:${androidSupportRecyclerViewV7Version}",
-            prettyTime: "org.ocpsoft.prettytime:prettytime:${prettyTimeVersion}",
-            ckChangelog: "de.cketti.library.changelog:ckchangelog:${ckChangelogVersion}",
-            retrofit: "com.squareup.retrofit:retrofit:${retrofitVersion}",
-            buttnerKnife: "com.jakewharton:butterknife:${butterKnifeVersion}",
+            playServicesBase   : "com.google.android.gms:play-services-base:${androidPlayServicesVersion}",
+            playServicesGCM    : "com.google.android.gms:play-services-gcm:${androidPlayServicesVersion}",
+            findBugAnnotations : "com.google.code.findbugs:annotations:${findBugsVersion}",
+            otto               : "com.squareup:otto:${ottoVersion}",
+            appCompatV7        : "com.android.support:appcompat-v7:${androidSupportVersion}",
+            supportV4          : "com.android.support:support-v4:${androidSupportVersion}",
+            recyclerViewV7     : "com.android.support:recyclerview-v7:${androidSupportRecyclerViewV7Version}",
+            prettyTime         : "org.ocpsoft.prettytime:prettytime:${prettyTimeVersion}",
+            ckChangelog        : "de.cketti.library.changelog:ckchangelog:${ckChangelogVersion}",
+            retrofit           : "com.squareup.retrofit:retrofit:${retrofitVersion}",
+            buttnerKnife       : "com.jakewharton:butterknife:${butterKnifeVersion}",
             butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
-            rxAndroid: "io.reactivex:rxandroid:${rxAndroidVersion}",
-            okhttp: "com.squareup.okhttp:okhttp:${okHttpVersion}",
-            multidex: "com.android.support:multidex:${androidSupportMultidexVersion}",
-            commonsCodec: "commons-codec:commons-codec:${commonsCodecVersion}",
-            protobuf: "com.google.protobuf:protobuf-java:${protobufVersion}",
-            constrainsLayout: "'com.android.support.constraint:constraint-layout:${androidSupportConstrainLayoutVersion}",
+            rxAndroid          : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            okhttp             : "com.squareup.okhttp:okhttp:${okHttpVersion}",
+            multidex           : "com.android.support:multidex:${androidSupportMultidexVersion}",
+            commonsCodec       : "commons-codec:commons-codec:${commonsCodecVersion}",
+            protobuf           : "com.google.protobuf:protobuf-java:${protobufVersion}",
+            constrainsLayout   : "com.android.support.constraint:constraint-layout:${androidSupportConstrainLayoutVersion}",
     ]
 
     mbwTestDependencies = [
-            junit: "junit:junit:${jUnitVersion}",
+            junit             : "junit:junit:${jUnitVersion}",
             supportAnnotations: "com.android.support:support-annotations:${androidSupportAnnotationsVersion}",
-            testRunner: "com.android.support.test:runner:${testingSupportLibVersion}",
-            testRules: "com.android.support.test:rules:${testingSupportLibVersion}",
+            testRunner        : "com.android.support.test:runner:${testingSupportLibVersion}",
+            testRules         : "com.android.support.test:rules:${testingSupportLibVersion}",
     ]
 
     mbwLibDependencies = [
@@ -149,7 +152,7 @@ ext {
             jacksonAnnotations: "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}",
             jacksonDataBinding: "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}",
             okhttp            : "com.squareup.okhttp:okhttp:${okHttpVersion}",
-            guaga             : "com.google.guava:guava:${guavaVersion}"
+            guava             : "com.google.guava:guava:${guavaVersion}"
     ]
 
     wapiTestDependencies = [

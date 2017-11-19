@@ -21,8 +21,18 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion androidSdkBuildVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.sourceCompatibilityVersion
+        targetCompatibility rootProject.ext.targetCompatibilityVersion
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
 
     sourceSets {
         main {
@@ -34,11 +44,6 @@ android {
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
         }
-    }
-
-    defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 19
     }
 
     lintOptions {

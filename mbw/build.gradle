@@ -1,11 +1,13 @@
 apply plugin: 'com.android.application'
 
 repositories {
+    google()
     mavenCentral()
 }
 
 buildscript {
     repositories {
+        google()
         mavenCentral()
     }
 
@@ -70,14 +72,24 @@ dependencies {
 }
 
 android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.sourceCompatibilityVersion
+        targetCompatibility rootProject.ext.targetCompatibilityVersion
+    }
+
     configurations {
         all*.exclude module: 'jcip-annotations'
         all*.exclude module: 'jsr305'
     }
+
     dexOptions {
         javaMaxHeapSize "4g"
         jumboMode = true
     }
+
     lintOptions {
         //gradle build complains about com.android.support:support-v4:22.2.0 not being compatible
     }
@@ -89,13 +101,6 @@ android {
         // bitcoinj brings in a native library for x86_64, which seems to confuse the playstore upload - just strip the file
         exclude 'lib/x86_64/darwin/libscrypt.dylib'
     }
-
-    compileOptions {
-        sourceCompatibility = 'VERSION_1_7'
-        targetCompatibility = 'VERSION_1_7'
-    }
-
-    buildToolsVersion androidSdkBuildVersion
 
     defaultConfig {
         versionCode 290705
@@ -142,9 +147,9 @@ android {
 
     productFlavors {
         prodnet {
-            compileSdkVersion 21
-            targetSdkVersion 19
-            minSdkVersion 14
+            compileSdkVersion rootProject.ext.compileSdkVersion
+            buildToolsVersion rootProject.ext.buildToolsVersion
+            minSdkVersion rootProject.ext.minSdkVersion
 
             applicationId 'com.mycelium.wallet'
             versionName = defaultConfig.versionName
@@ -161,10 +166,10 @@ android {
             }
         }
         dev {
-            // use Sdk21 for dev only - this allows to use native MultiDex without going through proguard (faster)
-            compileSdkVersion 21
-            buildToolsVersion androidSdkBuildVersion
-            minSdkVersion 21
+            // Use the latest and greatest for minSDK as this allows to use native MultiDex without going through proguard (faster)
+            compileSdkVersion rootProject.ext.compileSdkVersion
+            buildToolsVersion rootProject.ext.buildToolsVersion
+            minSdkVersion rootProject.ext.compileSdkVersion
 
             // if we are not on master, include the branchname in appId
             def appId = 'com.mycelium.devwallet';
@@ -189,10 +194,10 @@ android {
             }
         }
         devprod {
-            // use Sdk21 for dev only - this allows to use native MultiDex without going through proguard (faster)
-            compileSdkVersion 21
-            buildToolsVersion androidSdkBuildVersion
-            minSdkVersion 21
+            // Use the latest and greatest for minSDK as this allows to use native MultiDex without going through proguard (faster)
+            compileSdkVersion rootProject.ext.compileSdkVersion
+            buildToolsVersion rootProject.ext.buildToolsVersion
+            minSdkVersion rootProject.ext.compileSdkVersion
 
             def appId = 'com.mycelium.devprodwallet';
 
@@ -210,9 +215,9 @@ android {
             }
         }
         btctestnet {
-            compileSdkVersion 19
-            targetSdkVersion 19
-            minSdkVersion 14
+            compileSdkVersion rootProject.ext.compileSdkVersion
+            buildToolsVersion rootProject.ext.buildToolsVersion
+            minSdkVersion rootProject.ext.minSdkVersion
 
             applicationId 'com.mycelium.testnetwallet'
             versionName = defaultConfig.versionName + '-TESTNET'

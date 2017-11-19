@@ -16,16 +16,16 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion androidSdkBuildVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 19
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
     }
-//    we are just embedding the zxing lib here, we are not maintaining it.
+
+    // we are just embedding the zxing lib here, we are not maintaining it.
     lintOptions {
         ignoreWarnings true
     }
-
 }

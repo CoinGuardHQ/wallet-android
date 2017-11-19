@@ -5,8 +5,8 @@ repositories {
 }
 
 dependencies {
-    def mbwLibDependencies = rootProject.ext.coinApultDependencies
-    def mbwLibTestDependencies = rootProject.ext.coinApultTestDependencies
+    def mbwLibDependencies = rootProject.ext.mbwLibDependencies
+    def mbwLibTestDependencies = rootProject.ext.mbwLibTestDependencies
 
     compile project(includePrefix +':bitlib')
 

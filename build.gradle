@@ -4,17 +4,19 @@ def versionMinor = 0
 def versionPatch = 0
 def versionCodeApp = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100
 
+apply from: 'tools.gradle'
 apply from: 'gradle/ci.gradle'
 apply from: 'gradle/dependencies.gradle'
 
 buildscript {
+    apply from: 'ext_settings.gradle'
     repositories {
         jcenter()
         mavenCentral()
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
         classpath 'io.fabric.tools:gradle:1.21.6'
         classpath 'de.felixschulze.gradle:gradle-hockeyapp-plugin:3.5'
@@ -46,11 +48,11 @@ def preDexEnabled = 'true'.equals(System.getProperty('pre-dex', 'true'))
 
 allprojects {
     ext {
-        androidApplicationId = 'com.javiertarazaga.instasearch'
+        androidApplicationId = 'com.coinguard.android'
         androidVersionCode = versionCodeApp
         androidVersionName = "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
-        testApplicationId = 'com.javiertarazaga.instasearch.presentation.test'
+        testApplicationId = 'com.coinguard.android.test'
         gitSha = getGitSha()
         gitTimeStamp = getGitTimestamp()
         isCiEnvironment = isCI
